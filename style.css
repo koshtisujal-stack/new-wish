@@ -10,7 +10,7 @@ box-shadow:0 0 0 2px #3a2358,0 30px 80px rgba(150,80,255,.35)}
 
 .topbtn{position:absolute;top:14px;z-index:10;width:34px;height:34px;border:0;border-radius:50%;background:#fff;
 box-shadow:0 2px 8px rgba(80,30,130,.2);font-size:13px;cursor:pointer;color:var(--p1)}
-.topbtn.left{left:14px}.topbtn.right{right:14px}
+.topbtn.left{left:14px}.topbtn.right{right:14px}.topbtn.right2{right:56px}
 .particles{position:absolute;inset:0;pointer-events:none;z-index:1;overflow:hidden}
 .particles span{position:absolute;bottom:-30px;animation:rise linear forwards;opacity:.7}
 .paused .particles span{animation-play-state:paused}
