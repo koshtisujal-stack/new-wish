@@ -139,7 +139,7 @@ setInterval(() => {
 }, 700);
 
 // ====== Background music ======
-// music file ka path: music/song.mp3 (index.html me <audio> ke src me change kar sakte ho)
+// music file ka path index.html ke <audio id="bgm" src="..."> me hai
 const bgm = $("#bgm"), musicBtn = $("#music");
 const MAX_VOL = 0.5;
 let musicOn = true, musicStarted = false, fadeT;
@@ -152,19 +152,29 @@ function fadeTo(v, ms = 1500) {
     else bgm.volume = Math.max(0, Math.min(1, nv));
   }, 50);
 }
-function startMusic() {
-  if (musicStarted || !musicOn) return;
+bgm.addEventListener("error", () => console.warn("Music file load nahi hui:", bgm.src, bgm.error));
+const unlockEvents = ["click", "touchend", "keydown"];
+function tryPlay(e) {
+  if (e && e.target && e.target.closest && e.target.closest("#music")) return;
+  if (!musicOn || musicStarted) return;
   bgm.volume = 0;
-  bgm.play().then(() => { musicStarted = true; fadeTo(MAX_VOL); }).catch(() => {});
+  const p = bgm.play();
+  if (p) p.then(() => {
+    musicStarted = true;
+    unlockEvents.forEach(ev => document.removeEventListener(ev, tryPlay));
+    fadeTo(MAX_VOL);
+  }).catch(err => console.warn("Music abhi block hai, agle tap par dobara try hoga:", err));
 }
-// pehle click/tap par music shuru
-document.addEventListener("pointerdown", startMusic, { once: true });
+// jab tak music shuru na ho, har tap par try karta rahega
+unlockEvents.forEach(ev => document.addEventListener(ev, tryPlay));
 musicBtn.onclick = e => {
   e.stopPropagation();
   musicOn = !musicOn;
   musicBtn.textContent = musicOn ? "🔊" : "🔇";
-  if (musicOn) { bgm.play().catch(() => {}); fadeTo(MAX_VOL, 800); musicStarted = true; }
-  else fadeTo(0, 600);
+  if (musicOn) {
+    bgm.volume = 0;
+    bgm.play().then(() => { musicStarted = true; fadeTo(MAX_VOL, 800); }).catch(err => console.warn(err));
+  } else fadeTo(0, 600);
 };
 // tab background me jaye to music ruk jaye
 document.addEventListener("visibilitychange", () => {
