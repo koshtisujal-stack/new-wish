@@ -1,6 +1,6 @@
 // ====== CONFIG: yaha apna content change karo ======
 const NAME = "Sneha";
-const LETTER = "Tumhe kabhi bhi second priority jaisa nahi lagna chahiye tha mujhse. Galti meri hai, aur sach yehi hai ki tum sabse pehle ho.";
+const LETTER = "LOVE YOUU KADDII 😘. Hu kyare bi tane mara thi dur nai thava do . tari badhi problem hu lai lais 💕. ";
 // 5 photos yaha daalo (images folder me rakho)
 const PHOTOS = [
   { src: "images/photo1.jpg", cap: "Us din 💙" },
