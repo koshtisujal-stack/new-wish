@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>For Sneha 💙</title>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&family=Lora:wght@600;700&family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="phone">
+  <div class="screenwrap" id="app">
+    <button class="topbtn left" title="Replay" id="replay">🎁</button>
+    <button class="topbtn right" title="Pause / Play effects" id="pause">❚❚</button>
+    <div class="particles" id="particles"></div>
+
+    <!-- 1 -->
+    <section class="screen active" data-step="0">
+      <div class="char" data-emoji="🧸" data-img="images/bear.png"></div>
+      <h1>Sneha... I Have Something to Say 🥺</h1>
+      <p class="hand typed" data-text="I just want a chance to say this properly"></p>
+      <button class="btn next">Hear me out →</button>
+    </section>
+
+    <!-- 2 -->
+    <section class="screen" data-step="1">
+      <div class="char" data-emoji="🐻‍❄️" data-img="images/couple.png"></div>
+      <h1>I Know I Hurt You</h1>
+      <p class="hand typed" data-text="I never wanted to be the reason you felt this way 😔💔"></p>
+      <button class="btn next">Next →</button>
+    </section>
+
+    <!-- 3 -->
+    <section class="screen" data-step="2">
+      <div class="char square" data-emoji="🥹" data-img="images/mean.png"></div>
+      <h1>You Mean Everything</h1>
+      <p class="hand typed" data-text="Gudu I love you bahut 🥺 I want to do better, not just say sorry 🤍"></p>
+      <button class="btn next">Next →</button>
+    </section>
+
+    <!-- 4 -->
+    <section class="screen" data-step="3">
+      <div class="char" data-emoji="🐼" data-img="images/panda.png"></div>
+      <h1>I'm Truly Sorry</h1>
+      <p class="hand typed" data-text="I want to make it up to you... 🥹💕"></p>
+      <button class="btn next">Next →</button>
+    </section>
+
+    <!-- 5 envelope -->
+    <section class="screen" data-step="4">
+      <p class="soft">I wanted to say this the right way, here it goes...</p>
+      <div class="envelope" id="envelope">
+        <div class="env-back"></div>
+        <div class="env-paper"><i></i><i></i><i></i><span>💙 ❤️</span></div>
+        <div class="env-front"></div>
+        <div class="env-flap"></div>
+        <div class="seal">❤</div>
+      </div>
+      <button class="btn ghost" id="openEnv">Open it 💌</button>
+    </section>
+
+    <!-- 6 letter -->
+    <section class="screen top" data-step="5">
+      <div class="letter">
+        <h3>Hi Sneha, 💙</h3>
+        <p class="hand big" id="letterText"></p>
+        <div class="sign" id="sign">— Gudu 💙</div>
+      </div>
+      <div class="char small cat" data-emoji="🐱" data-img="images/cat.png"></div>
+      <div class="forgive" id="forgiveBox">
+        <h2>Can you forgive me? 🥺</h2>
+        <div class="meter"><div class="fill" id="fill"></div><span class="knob" id="knob">🥺</span></div>
+        <div class="cap">💙 HOW CLOSE ARE WE?</div>
+        <div class="cap tiny" id="cap2">Take all the time you need 💙</div>
+        <button class="btn wide" id="yes">I forgive you 💙</button>
+        <button class="btn mini" id="no">Not yet 😔</button>
+        <div class="wait" id="wait">💙 Gudu is right here, waiting...</div>
+      </div>
+    </section>
+
+    <!-- 7 gallery -->
+    <section class="screen top" data-step="6">
+      <h2 class="gtitle">you have no idea what this means 💙</h2>
+      <p class="tiny">You just made my day 🥹 — Gudu</p>
+      <div class="gallery" id="gallery"></div>
+      <div class="dots" id="dots"></div>
+      <div class="note">Loving someone isn't about messing up — it's about always coming back. 🥹<br>This is the best part: I get to love you again, and again 💙</div>
+      <button class="btn" id="again">Play again 🔁</button>
+    </section>
+  </div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
