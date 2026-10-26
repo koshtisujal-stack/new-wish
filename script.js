@@ -138,6 +138,40 @@ setInterval(() => {
   setTimeout(() => s.remove(), 12000);
 }, 700);
 
+// ====== Background music ======
+// music file ka path: music/song.mp3 (index.html me <audio> ke src me change kar sakte ho)
+const bgm = $("#bgm"), musicBtn = $("#music");
+const MAX_VOL = 0.5;
+let musicOn = true, musicStarted = false, fadeT;
+function fadeTo(v, ms = 1500) {
+  clearInterval(fadeT);
+  const step = (v - bgm.volume) / (ms / 50);
+  fadeT = setInterval(() => {
+    const nv = bgm.volume + step;
+    if ((step > 0 && nv >= v) || (step < 0 && nv <= v)) { bgm.volume = v; clearInterval(fadeT); if (v === 0) bgm.pause(); }
+    else bgm.volume = Math.max(0, Math.min(1, nv));
+  }, 50);
+}
+function startMusic() {
+  if (musicStarted || !musicOn) return;
+  bgm.volume = 0;
+  bgm.play().then(() => { musicStarted = true; fadeTo(MAX_VOL); }).catch(() => {});
+}
+// pehle click/tap par music shuru
+document.addEventListener("pointerdown", startMusic, { once: true });
+musicBtn.onclick = e => {
+  e.stopPropagation();
+  musicOn = !musicOn;
+  musicBtn.textContent = musicOn ? "🔊" : "🔇";
+  if (musicOn) { bgm.play().catch(() => {}); fadeTo(MAX_VOL, 800); musicStarted = true; }
+  else fadeTo(0, 600);
+};
+// tab background me jaye to music ruk jaye
+document.addEventListener("visibilitychange", () => {
+  if (!musicOn || !musicStarted) return;
+  document.hidden ? bgm.pause() : bgm.play().catch(() => {});
+});
+
 // pause button & replay
 $("#pause").onclick = e => {
   app.classList.toggle("paused");
