@@ -1,6 +1,6 @@
 // ====== CONFIG: yaha apna content change karo ======
 const NAME = "Sneha";
-const LETTER = "LOVE YOUU KADDII 😘. Hu kyare bi tane mara thi dur nai thava do . tari badhi problem hu lai lais 💕. ";
+const LETTER = "LOVE YOUU KADDII 😘. 21 days left and 60minutes 😁. Many Many Happy Returns Of The Day Darlingggg!!!!😘😘🫂🫂🥰😍💕💞 ";
 // 5 photos yaha daalo (images folder me rakho)
 const PHOTOS = [
   { src: "images/photo1.jpg", cap: "Us din 💙" },
